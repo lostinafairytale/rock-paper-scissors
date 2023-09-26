@@ -1,29 +1,59 @@
-let choices = ['Rock', 'Paper', 'Scissors'];
+const container = document.querySelector('#container')
+
+const btn1 = document.createElement("button");
+btn1.textContent = "Rock";
+container.appendChild(btn1);
+
+const btn2 = document.createElement("button");
+btn2.textContent = "Paper";
+container.appendChild(btn2);
+
+const btn3 = document.createElement("button");
+btn3.textContent = "Scissors";
+container.appendChild(btn3);
+
+const div = document.createElement("div");
+container.appendChild(div);
+
+let choices = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice() {
-    return (choices[(Math.floor(Math.random() * 3))])
+  return choices[Math.floor(Math.random() * 3)];
 }
 function playRound(playerSelection, computerSelection) {
-    /*
-        takes playerSelection -- Case insensitive 
-        takes computerSelection
-        Compares them. ==? &&?
-        Rock < Paper, Rock > Scissors, Scissors > Paper
-            Would we do this for every instance 
-                Like... if ps == rock && cs == paper return "You lose"
-    */
-    let ps = playerSelection.toLowerCase();
-    let cs = computerSelection.toLowerCase();
+  let ps = playerSelection.toLowerCase();
+  let cs = computerSelection.toLowerCase();
 
-    if (ps == 'paper' && cs == 'rock' || ps == 'scissors' && cs == 'paper' || ps == 'rock' && cs == 'scissors') {
-        return 'You win!';
-    } else if (cs == 'paper' && ps == 'rock' || cs == 'scissors' && ps == 'paper' || cs == 'rock' && ps == 'scissors') {
-        return 'You lose!';
-    } else {
-        return 'It\'s a tie'
-    }
+  if (
+    (ps == "paper" && cs == "rock") ||
+    (ps == "scissors" && cs == "paper") ||
+    (ps == "rock" && cs == "scissors")
+  ) {
+    return "You win!";
+  } else if (
+    (cs == "paper" && ps == "rock") ||
+    (cs == "scissors" && ps == "paper") ||
+    (cs == "rock" && ps == "scissors")
+  ) {
+    return "You lose!";
+  } else {
+    return "It's a tie";
+  }
 }
 
+
+const btns = document.querySelectorAll('button')
+btns.forEach((button) => {
+  let choice = button.textContent;
+  button.addEventListener("click", () => {
+    div.textContent = playRound(choice, getComputerChoice());
+  });
+});
+
+
+
+
+/*
 function game() {
     let rounds = 5;
     let winner = 0;
@@ -45,3 +75,4 @@ function game() {
 }
 
 game();
+*/
