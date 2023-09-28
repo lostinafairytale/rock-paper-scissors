@@ -1,9 +1,16 @@
+body {
+    background-color: #FBEAFF;
+    color: #4B4453;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 500px;
+    padding: 90px;
 }
 
 button {
@@ -12,11 +19,31 @@ button {
     font-size: 20px;
     border: none;
     border-radius: 15px;
-    background-color: peachpuff;
-    color: brown;
+    background-color: #B39CD0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all ease-in-out 200ms;
+}
+
+button:hover {
+    background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
 }
 
 .scores {
     display: flex;
     justify-content: space-between;
+}
+
+.new-game {
+    background-color: #845EC2;
+    border-radius: 35px;
+}
+
+.newLi {
+    list-style: none;
+    font-size: 18px;
+}
+
+.final-score {
+    font-size: 20px;
+    font-weight: bold;
 }
