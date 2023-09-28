@@ -1,0 +1,22 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+}
+
+button {
+    margin: 20px;
+    padding: 25px;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: peachpuff;
+    color: brown;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+}

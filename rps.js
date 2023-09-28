@@ -1,16 +1,10 @@
 const container = document.querySelector('#container')
 
-const btn1 = document.createElement("button");
-btn1.textContent = "Rock";
-container.appendChild(btn1);
+const btn1 = document.querySelector('.rock')
 
-const btn2 = document.createElement("button");
-btn2.textContent = "Paper";
-container.appendChild(btn2);
+const btn2 = document.querySelector('paper')
 
-const btn3 = document.createElement("button");
-btn3.textContent = "Scissors";
-container.appendChild(btn3);
+const btn3 = document.querySelector('scissors')
 
 const div = document.createElement("div");
 container.appendChild(div);
@@ -20,6 +14,7 @@ let choices = ["Rock", "Paper", "Scissors"];
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
 }
+
 function playRound(playerSelection, computerSelection) {
   let ps = playerSelection.toLowerCase();
   let cs = computerSelection.toLowerCase();
@@ -29,15 +24,15 @@ function playRound(playerSelection, computerSelection) {
     (ps == "scissors" && cs == "paper") ||
     (ps == "rock" && cs == "scissors")
   ) {
-    return "You win!";
+    return "Player!";
   } else if (
     (cs == "paper" && ps == "rock") ||
     (cs == "scissors" && ps == "paper") ||
     (cs == "rock" && ps == "scissors")
   ) {
-    return "You lose!";
+    return "Computer!";
   } else {
-    return "It's a tie";
+    return "Tie";
   }
 }
 
@@ -45,6 +40,9 @@ function playRound(playerSelection, computerSelection) {
 const btns = document.querySelectorAll('button')
 btns.forEach((button) => {
   let choice = button.textContent;
+  let rounds = 5
+  let winner = 0
+  let loser = 0
   button.addEventListener("click", () => {
     div.textContent = playRound(choice, getComputerChoice());
   });
